@@ -1,3 +1,6 @@
+"""
+clean the text and remove unnecessary token
+"""
 import string
 from showprocess import ProgressBar
 from nltk.corpus import stopwords

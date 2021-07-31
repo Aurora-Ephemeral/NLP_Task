@@ -1,3 +1,6 @@
+"""
+This file train a customized bert model based on the cleaning train text
+"""
 import pandas as pd
 import numpy as np
 import torch
@@ -12,6 +15,17 @@ import torch.nn as nn
 from Bert_Arch import Bert_Arch
 
 def create_dataloader(data_seq, data_mask, data_y):
+    """
+    create dataloader for pytorch
+    Args:
+        data_seq: [torch tensor] tokens id in bert tokenizer
+        data_mask: [torch tensor] mask id for bert input
+        data_y: [torch tensor] categorical label as output
+
+    Returns:
+        dataloader: dataloader for training
+
+    """
     BATCH_SIZE = 32
 
     data = TensorDataset(data_seq,data_mask, data_y)
@@ -21,6 +35,17 @@ def create_dataloader(data_seq, data_mask, data_y):
     return dataloader
 
 def train(train_dataloader,model,cross_entropy):
+    """
+    train the model
+    Args:
+        train_dataloader: train dataset
+        model: training network
+        cross_entropy: loss function to back propagation
+
+    Returns:
+        avg_loss: average loss during learning process
+        total_preds: totally prediction from network
+    """
 
 
     optimizer = AdamW(model.parameters(),lr=1e-3)
@@ -49,6 +74,17 @@ def train(train_dataloader,model,cross_entropy):
 
 
 def evaluate(val_dataloader,model,cross_entropy):
+    """
+    evaluate current model at the end of each epoch
+    Args:
+        val_dataloader: dataset for evaluation
+        model: current trained model
+        cross_entropy: loss function
+
+    Returns:
+        avg_loss: average loss during learning process
+        total_preds: totally prediction from network
+    """
     print('\n Evaluating...')
     model.eval()
     total_loss, total_accuracy = 0, 0
@@ -140,7 +176,6 @@ if __name__=='__main__':
 
 
 
-""""""
 
 
 

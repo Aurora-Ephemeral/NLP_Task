@@ -1,3 +1,6 @@
+"""
+This file define customized bert architecture
+"""
 import torch.nn as nn
 
 class Bert_Arch(nn.Module):
