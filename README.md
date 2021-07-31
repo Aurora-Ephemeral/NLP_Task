@@ -10,6 +10,6 @@ Totally it contains two kinds of topics. One is to classify unstructured tweets 
 - Model: Bert + BiLSTM
 - Preprocessing: negative sample generation by random sampling from rest dataset
 # Usage
-Clone the repo """ git clone 
+Clone the repo """ git clone https://github.com/Aurora-Ephemeral/NLP_Task.git """
 
 
